@@ -1,6 +1,7 @@
 package es.majiba.sanitas.controller;
 
 import java.math.BigDecimal;
+import java.net.URLDecoder;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -32,7 +33,7 @@ public class CalculatorController {
 			@RequestParam long val2) {
 		try {
 			
-			BigDecimal result = appService.calculator( operator, val1, val2);
+			BigDecimal result = appService.calculator( URLDecoder.decode(operator,"UTF-8"), val1, val2);
 			
 			trace.trace(result);
 			
